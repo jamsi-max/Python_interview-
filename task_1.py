@@ -1,22 +1,22 @@
-# 2. Написать программу, которая запрашивает у пользователя ввод числа. 
-# На введенное число она отвечает сообщением, целое оно или дробное. 
-# Если дробное — необходимо далее выполнить сравнение чисел до и после 
-# запятой. Если они совпадают, программа должна возвращать значение True, 
-# иначе False.
-import os
+# 1. Написать программу, которая будет содержать функцию для получения имени файла из 
+# полного пути до него. При вызове функции в качестве аргумента должно передаваться 
+# имя файла с расширением. В функции необходимо реализовать поиск полного пути по имени
+#  файла, а затем «выделение» из этого пути имени файла (без расширения).
+import os, sys
 
 
-def compare():
-    num = input('Enter nmber: ')
-    if '.' in num or ',' in num:
-        print(f'The entered number {num} is an float')
-        print('True') if len(set(num.split('.'))) == len(set(num.split(','))) else print('False')
+def get_name(file_name):
+    if os.path.isfile(file_name):
+        print(os.path.abspath(file_name).split('/')[-1].split('.')[0])
     else:
-        print (f'The entered number {num} is an integer')
+        print('File not found!')
 
 
 def main():
-    compare()
+    try:
+        get_name(sys.argv[1])
+    except:
+        print('File not found or argument!')
 
 
 if __name__ == '__main__':
