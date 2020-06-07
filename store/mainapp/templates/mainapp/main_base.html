@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <div class="container">
+            <div class="main__col">
+                <div class="main__title">
+                    <h1>Shop</h1>
+                </div>
+                <div class="main__btn">
+                    <!-- <a href="#">Storage of products</a> -->
+                    <a href="#popup" class="popup-link">Add new product</a>
+                    <!-- <a href="#">Preparing a CSV file</a> -->
+                </div>
+                <div class="main__content">
+                    <div class="container">
+                        <div class="content__body">
+                            <div class="content__row">
+                                                              
+                                {% for item in products %}
+                                <div class="content__column">
+                                    <div class="content__item">
+                                        <div class="content__img">
+                                            <img src="/media/{{ item.image }}" alt="">
+                                        </div>
+                                        <div class="subtitle">{{ item.name }}</div>
+                                        <div class="price">{{ item.price }}$</div>
+                                        <div class="description">
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut cum nostrum officiis cumque est itaque totam ea labore maxime sunt, assumenda facilis minima optio eius perspiciatis laudantium voluptas alias. Officia.</p>
+                                        </div>
+                                        <a href="#" class="add__btn">Buy</a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+{% endblock %}

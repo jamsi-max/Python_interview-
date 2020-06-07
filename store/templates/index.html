@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0. maximum-scale=1.0, user-scalable=0">
+    
+    {% block title %}
+        <title>Main</title>
+    {% endblock %}
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+
+    {% block js %}
+        <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+        <script src="{% static 'js/popups.js' %}"></script>
+        <script src="{% static 'js/product_add.js' %}"></script>
+    {% endblock %}
+</head>
+
+<body>
+    <div class='wrapper'>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer_row">
+                    <div class="footer_text">Created by Jony {% now "Y" %}</div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <div id="fix-obj" class="fix-obj"></div>
+
+    <div id="popup" class="popup">
+
+        <div class="popup__body">
+            <div class="popup_content">
+                <a href="#fix-obj" class="popup__close close-popup">X</a>
+                <div class="popup__title">Create product</div>
+                <div class="popup__form">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti nulla doloremque nihil atque, repellendus eligendi, sunt sit blanditiis explicabo quas laboriosam nisi eum reprehenderit doloribus officia dolorum. Harum, hic possimus</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
