@@ -81,6 +81,7 @@ body.lock{
     padding: 50px;
     margin: 0px -22.5px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .content__column{
     padding: 0px 22.5px;
