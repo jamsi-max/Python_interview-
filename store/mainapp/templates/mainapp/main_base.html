@@ -21,11 +21,9 @@
                     <div class="container">
                         <div class="content__body">
                             <div class="content__row">
-                                
+                                {% for item in products %}
                                     {% include 'mainapp/includes/inc__product_list.html' %}
-                                
-                                
-
+                                {% endfor %}
                                 </div>
                             </div>
                         </div>

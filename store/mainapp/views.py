@@ -21,9 +21,11 @@ class ProductList(View):
         form = CreateProductForm(request.POST, request.FILES)
         
         if form.is_valid():
-            form.save()
+            # form.save()
+            product = form.save()
 
-            result = render_to_string('mainapp/includes/inc__product_list.html', context={'products': Product.objects.all()})
+            # result = render_to_string('mainapp/includes/inc__product_list.html', context={'products': Product.objects.all()})
+            result = render_to_string('mainapp/includes/inc__product_list.html', context={'item': product})
             return JsonResponse({'result': result})
         else:
-            return redirect('main:index')
+            return JsonResponse({'error': form.errors})
