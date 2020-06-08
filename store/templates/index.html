@@ -12,12 +12,6 @@
     {% block css %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
-
-    {% block js %}
-        <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-        <script src="{% static 'js/popups.js' %}"></script>
-        <script src="{% static 'js/product_add.js' %}"></script>
-    {% endblock %}
 </head>
 
 <body>
@@ -42,13 +36,27 @@
     <div id="popup" class="popup">
 
         <div class="popup__body">
-            <div class="popup_content">
+            <div class="popup__content">
                 <a href="#fix-obj" class="popup__close close-popup">X</a>
                 <div class="popup__title">Create product</div>
-                <div class="popup__form">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti nulla doloremque nihil atque, repellendus eligendi, sunt sit blanditiis explicabo quas laboriosam nisi eum reprehenderit doloribus officia dolorum. Harum, hic possimus</div>
+                <div class="popup__form">
+                    <form method="post" enctype="multipart/form-data" class="form-create" id="ceateProductForm" data-url="{% url 'main:index' %}">
+                        {% csrf_token %}
+                        {% for fild in form %}
+                            {{ fild.label }}
+                            {{ fild }}
+                        {% endfor %}
+                        <button type="button" name="button" class="btn form-create-btn" id="createProductButton">Create</button>
+                    </form>
+                </div> 
             </div>
         </div>
     </div>
+    {% block js %}
+        <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+        <script src="{% static 'js/popups.js' %}"></script>
+        <script src="{% static 'js/product_add.js' %}"></script>
+    {% endblock %}
 </body>
 
 </html>
